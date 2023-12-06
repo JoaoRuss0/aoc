@@ -12,22 +12,16 @@ pub fn solve() {
     println!("{}", get_sum_of_possible_games(lines));
 }
 
-fn get_sum_of_possible_games(lines: Vec<String>) -> u16{
+fn get_sum_of_possible_games(lines: Vec<String>) -> u32{
 
-    let mut sum: u16 = 0;
+    let mut sum: u32 = 0;
 
     for line in lines {
 
         let split_line = line.split(':').collect::<Vec<&str>>();
-
-        let game_id_string: &str = split_line.get(0).unwrap();
-        let game_id: u8 = game_id_string.split(' ').collect::<Vec<&str>>().get(1).unwrap().parse().unwrap();
-
         let color_count : ColourCount = get_max_color_count(split_line.get(1).unwrap().trim());
 
-        if color_count.max_red <= 12 && color_count.max_green <= 13 && color_count.max_blue <= 14 {
-            sum += game_id as u16;
-        }
+        sum += color_count.max_blue * color_count.max_red * color_count.max_green;
     }
     return sum;
 }
