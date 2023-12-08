@@ -1,4 +1,5 @@
 mod day1part1;
+mod day1part2;
 mod day2part1;
 mod day2part2;
 mod day4part1;
@@ -10,7 +11,7 @@ use std::{
 };
 
 fn main() {
-   day1part1::solve()
+   day1part2::solve()
 }
 
 fn read_file(file_name: &str) -> Vec<String> {
