@@ -31,7 +31,6 @@ fn process_lines(lines: Vec<String>) -> u32 {
         quick_sort(&mut winning_numbers, 0, winning_numbers_amount - 1);
 
         let mut matching_number_amount : u32 = 0;
-
         let mut j = 0;
         for i in 0..my_numbers_amount as usize {
 
@@ -58,11 +57,6 @@ fn process_lines(lines: Vec<String>) -> u32 {
             1 => 1,
             _ => u32::pow(2, matching_number_amount - 1)
         };
-
-        println!("{:?}", winning_numbers);
-        println!("{:?}", my_numbers);
-        println!("{}", matching_number_amount);
-
     }
 
     return sum;
