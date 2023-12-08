@@ -1,15 +1,15 @@
 mod day2part1;
 mod day2part2;
 mod day4part1;
+mod day4part2;
 
 use std::{
     fs::File,
     io::{prelude::*, BufReader},
 };
 
-
 fn main() {
-   day4part1::solve()
+   day4part2::solve()
 }
 
 fn read_file(file_name: &str) -> Vec<String> {
