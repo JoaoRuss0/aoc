@@ -9,7 +9,7 @@ use std::{
 
 
 fn main() {
-    day2part2::solve()
+   day4part1::solve()
 }
 
 fn read_file(file_name: &str) -> Vec<String> {
