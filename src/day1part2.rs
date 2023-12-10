@@ -1,8 +1,8 @@
-use crate::read_file;
+use crate::read_file_into_lines;
 use std::ops::Index;
 
 pub fn solve() {
-    let lines = read_file("input1.txt");
+    let lines = read_file_into_lines("input1.txt");
     println!("{}", process_lines(lines));
 }
 

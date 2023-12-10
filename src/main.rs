@@ -6,6 +6,7 @@ mod day3part1;
 mod day3part2;
 mod day4part1;
 mod day4part2;
+mod day5part1;
 
 use std::{
     fs::File,
@@ -13,13 +14,26 @@ use std::{
 };
 
 fn main() {
-    day3part2::solve()
+    day5part1::solve()
 }
 
-fn read_file(file_name: &str) -> Vec<String> {
+fn read_file_into_lines(file_name: &str) -> Vec<String> {
     let file = File::open(file_name).expect("Can not open file");
     let buf_reader = BufReader::new(file);
     return buf_reader.lines().map(|l| l.expect("can not parse line")).collect();
+}
+
+fn read_file_into_chunks(file_name: &str) -> Vec<String> {
+    let file = File::open(file_name).expect("Can not open file");
+
+    let mut buf_reader = BufReader::new(file);
+    let mut file_string: String = String::new();
+    buf_reader.read_to_string(&mut file_string);
+
+    return file_string
+        .split("\n\n")
+        .map(|chunk| chunk.to_string())
+        .collect::<Vec<String>>();
 }
 
 fn quick_sort(numbers: &mut Vec<u8>, start: usize, end: isize) {

@@ -1,9 +1,9 @@
 use crate::day3part1::{find_last_digit_j, MATRIX_WIDTH};
-use crate::read_file;
+use crate::read_file_into_lines;
 use std::collections::HashMap;
 
 pub fn solve() {
-    let lines = read_file("input3.txt");
+    let lines = read_file_into_lines("input3.txt");
     let matrix: Vec<Vec<char>> = lines.iter().map(|l| l.chars().collect::<Vec<char>>()).collect();
     println!("{}", process_matrix(matrix));
 }

@@ -1,7 +1,7 @@
-use crate::{quick_sort, read_file};
+use crate::{quick_sort, read_file_into_lines};
 
 pub fn solve() {
-    let lines = read_file("input4.txt");
+    let lines = read_file_into_lines("input4.txt");
     println!("{}", process_lines(lines));
 }
 

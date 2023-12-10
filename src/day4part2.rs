@@ -1,8 +1,8 @@
 use crate::day4part1::{get_matching_number_count, get_numbers_from_line};
-use crate::read_file;
+use crate::read_file_into_lines;
 
 pub fn solve() {
-    let lines = read_file("input4.txt");
+    let lines = read_file_into_lines("input4.txt");
     println!("{}", process_lines(lines));
 }
 

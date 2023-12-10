@@ -1,4 +1,4 @@
-use crate::read_file;
+use crate::read_file_into_lines;
 
 struct ColourCount {
     max_red: u32,
@@ -7,7 +7,7 @@ struct ColourCount {
 }
 
 pub fn solve() {
-    let lines = read_file("input2.txt");
+    let lines = read_file_into_lines("input2.txt");
     println!("{}", get_sum_of_possible_games(lines));
 }
 

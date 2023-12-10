@@ -1,9 +1,9 @@
-use crate::read_file;
+use crate::read_file_into_lines;
 
 pub const MATRIX_WIDTH: usize = 140;
 
 pub fn solve() {
-    let lines = read_file("input3.txt");
+    let lines = read_file_into_lines("input3.txt");
     let matrix: Vec<Vec<char>> = lines.iter().map(|l| l.chars().collect::<Vec<char>>()).collect();
     println!("{}", process_matrix(matrix));
 }
