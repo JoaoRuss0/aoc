@@ -1,6 +1,6 @@
 use crate::read_file;
 
-const MATRIX_WIDTH: usize = 140;
+pub const MATRIX_WIDTH: usize = 140;
 
 pub fn solve() {
     let lines = read_file("input3.txt");
@@ -28,7 +28,7 @@ fn process_matrix(matrix: Vec<Vec<char>>) -> u32 {
     return sum;
 }
 
-fn find_last_digit_j(matrix: &Vec<Vec<char>>, current_i: usize, starting_j: usize, number: &mut u32) -> usize {
+pub fn find_last_digit_j(matrix: &Vec<Vec<char>>, current_i: usize, starting_j: usize, number: &mut u32) -> usize {
     let mut last_digit_j: usize = starting_j;
     let mut number_string = matrix[current_i][starting_j].to_string();
 
