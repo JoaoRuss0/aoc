@@ -1,6 +1,6 @@
 use crate::read_file_into_chunks;
 
-struct AlmanacSectionEntry {
+pub struct AlmanacSectionEntry {
     destination: u64,
     source: u64,
     range: u64,
@@ -39,7 +39,7 @@ fn process_file(chunks: Vec<String>) -> u64 {
     return lowest_location;
 }
 
-fn get_seeds_from_line(line: String) -> Vec<u64> {
+pub fn get_seeds_from_line(line: String) -> Vec<u64> {
     let seed_numbers_string: &str = line.split(':').collect::<Vec<&str>>().get(1).unwrap().trim();
     return seed_numbers_string
         .split(' ')
@@ -47,7 +47,7 @@ fn get_seeds_from_line(line: String) -> Vec<u64> {
         .collect::<Vec<u64>>();
 }
 
-fn get_almanac_entries_from_chunk(chunk: String) -> Vec<AlmanacSectionEntry> {
+pub fn get_almanac_entries_from_chunk(chunk: String) -> Vec<AlmanacSectionEntry> {
     let mut almanac_entries: Vec<AlmanacSectionEntry> = Vec::new();
     let lines = chunk.split('\n').collect::<Vec<&str>>();
 
@@ -66,7 +66,7 @@ fn get_almanac_entries_from_chunk(chunk: String) -> Vec<AlmanacSectionEntry> {
     return almanac_entries;
 }
 
-fn get_mapped_destination_from_source(almanac_entries: &Vec<AlmanacSectionEntry>, source: u64) -> u64 {
+pub fn get_mapped_destination_from_source(almanac_entries: &Vec<AlmanacSectionEntry>, source: u64) -> u64 {
     let mut mapper_entry_optional: Option<&AlmanacSectionEntry> = Option::None;
 
     for almanac_entry in almanac_entries {
