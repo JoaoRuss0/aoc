@@ -8,6 +8,8 @@ mod day4part1;
 mod day4part2;
 mod day5part1;
 mod day5part2;
+mod day6part1;
+mod day6part2;
 
 use std::{
     fs::File,
@@ -15,7 +17,7 @@ use std::{
 };
 
 fn main() {
-    day5part2::solve()
+    day6part1::solve()
 }
 
 fn read_file_into_lines(file_name: &str) -> Vec<String> {
@@ -64,4 +66,19 @@ fn move_to_new_position(numbers: &mut Vec<u8>, mut index: usize, goal: usize) {
         numbers[index + 1] = stored_number;
         index += 1;
     }
+}
+
+fn get_numbers_from_string_with_colon(string: &str) -> Vec<u8> {
+    let numbers_string = *string.split(':').collect::<Vec<&str>>().get(1).unwrap();
+    return get_numbers_from_string(numbers_string);
+}
+
+fn get_numbers_from_string(string: &str) -> Vec<u8> {
+    return string
+        .split(' ')
+        .filter(|&numer| !numer.is_empty())
+        .collect::<Vec<&str>>()
+        .iter()
+        .map(|n| n.parse::<u8>().expect("Could not parse into number"))
+        .collect::<Vec<u8>>();
 }

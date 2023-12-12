@@ -1,4 +1,4 @@
-use crate::{quick_sort, read_file_into_lines};
+use crate::{get_numbers_from_string, get_numbers_from_string_with_colon, quick_sort, read_file_into_lines};
 
 pub fn solve() {
     let lines = read_file_into_lines("input4.txt");
@@ -57,17 +57,7 @@ pub fn get_numbers_from_line(line: String, my_numbers: &mut Vec<u8>, winning_num
     *my_numbers = get_numbers_from_string(my_numbers_string);
     quick_sort(my_numbers, 0, my_numbers.len() as isize - 1);
 
-    let winning_numbers_string = split_line.get(0).unwrap().split(':').last().unwrap().trim();
-    *winning_numbers = get_numbers_from_string(winning_numbers_string);
+    let winning_numbers_string = split_line.get(0).unwrap().trim();
+    *winning_numbers = get_numbers_from_string_with_colon(winning_numbers_string);
     quick_sort(winning_numbers, 0, winning_numbers.len() as isize - 1);
-}
-
-fn get_numbers_from_string(string: &str) -> Vec<u8> {
-    return string
-        .split(' ')
-        .filter(|&numer| !numer.is_empty())
-        .collect::<Vec<&str>>()
-        .iter()
-        .map(|n| n.parse::<u8>().expect("Could not parse into number"))
-        .collect::<Vec<u8>>();
 }
