@@ -17,7 +17,7 @@ use std::{
 };
 
 fn main() {
-    day6part1::solve()
+    day6part2::solve()
 }
 
 fn read_file_into_lines(file_name: &str) -> Vec<String> {
