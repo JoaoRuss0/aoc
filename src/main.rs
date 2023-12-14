@@ -10,6 +10,7 @@ mod day5part1;
 mod day5part2;
 mod day6part1;
 mod day6part2;
+mod day7part1;
 
 use std::{
     fs::File,
@@ -17,7 +18,7 @@ use std::{
 };
 
 fn main() {
-    day6part2::solve()
+    day7part1::solve()
 }
 
 fn read_file_into_lines(file_name: &str) -> Vec<String> {
